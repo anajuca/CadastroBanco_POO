@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 public class metodos {
     
-    private void centralizar(JFrame janela){
+    public void centralizar(JFrame janela){
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension tamanhoJanela = janela.getSize();
 
