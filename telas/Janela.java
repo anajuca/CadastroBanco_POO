@@ -7,12 +7,12 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
-import funcoes.metodos;
 
 public class Janela extends JFrame {
-
-    metodos funcoes = new metodos();
+    
     JLabel jlAgencia = new JLabel();
     JTextField jtfAgencia = new JTextField();
     JLabel jlConta = new JLabel();
@@ -36,12 +36,13 @@ public class Janela extends JFrame {
 
     public Janela(){
 
+        super("Java Swing - Desenvolvimento de Sistemas");
         setSize(400, 255);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
         getContentPane().setLayout(null);
-        funcoes.centralizar(this);
+        centralizar();
         
         jlAgencia.setText("Código da Agência");
         jlAgencia.setBounds(10, 10, 110, 18);
@@ -94,12 +95,12 @@ public class Janela extends JFrame {
 
         
         jrbCorrente.setBounds(100, 150, 111, 20);
-        jrbCorrente.setMnemonic('C');
+        jrbCorrente.setMnemonic(KeyEvent.VK_C);
         jrbCorrente.setSelected(true);
         getContentPane().add(jrbCorrente);
 
         jrbPoupanca.setBounds(225, 150, 118, 20);
-        jrbPoupanca.setMnemonic('P');
+        jrbPoupanca.setMnemonic(KeyEvent.VK_P);
         getContentPane().add(jrbPoupanca);
 
         
@@ -112,18 +113,30 @@ public class Janela extends JFrame {
 
         
         jbConsultar.setBounds(35, 190, 100, 23);
-        jbConsultar.setMnemonic('S');
+        jbConsultar.setMnemonic(KeyEvent.VK_S);
         getContentPane().add(jbConsultar);
 
         jbAtualizar.setBounds(145, 190, 100, 23);
-        jbAtualizar.setMnemonic('A');
+        jbAtualizar.setMnemonic(KeyEvent.VK_A);
         jbAtualizar.setEnabled(false);
         getContentPane().add(jbAtualizar);
 
         jbFechar.setBounds(225, 190, 100, 23);
-        jbFechar.setMnemonic('F');
+        jbFechar.setMnemonic(KeyEvent.VK_F);
         getContentPane().add(jbFechar);
 
+    }
+
+    private void centralizar() {
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension janela = getSize();
+        if (janela.height > screen.height) {
+            setSize(janela.width, screen.height);
+        }
+        if (janela.width > screen.width) {
+            setSize(screen.width, janela.height);
+        }
+        setLocation((screen.width - janela.width) / 2, (screen.height - janela.height) / 2);
     }
    
     public static void main(String[] args){
