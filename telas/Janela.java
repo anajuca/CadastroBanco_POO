@@ -12,29 +12,29 @@ import java.awt.event.KeyEvent;
 
 
 public class Janela extends JFrame {
-    
-    JLabel jlAgencia = new JLabel();
-    JTextField jtfAgencia = new JTextField();
-    JLabel jlConta = new JLabel();
-    JTextField jtfConta = new JTextField();
-    JSeparator jSeparator01 = new JSeparator();
-    JLabel jlNome = new JLabel("Nome:");
-    JTextField jtfNome = new JTextField();
-    JLabel jlEndereco = new JLabel("Endereço:");
-    JTextField jtfEndereco = new JTextField();
-    JLabel jlTelefone = new JLabel("Telefone");
-    JTextField jtfTelefone = new JTextField();
-    JLabel jlCpf = new JLabel("CPF.");
-    JTextField jtfCpf = new JTextField();
-    JRadioButton jrbCorrente = new JRadioButton("Conta Corrente");
-    JRadioButton jrbPoupanca = new JRadioButton("Conta Poupança");
-    ButtonGroup bgContas = new ButtonGroup();
-    JSeparator jSeparator02 = new JSeparator();
-    JButton jbConsultar = new JButton("Consultar");
-    JButton jbAtualizar = new JButton("Atualizar");
-    JButton jbFechar = new JButton("Fechar");
 
     public Janela(){
+
+        JLabel jlAgencia = new JLabel();
+        JTextField jtfAgencia = new JTextField();
+        JLabel jlConta = new JLabel();
+        JTextField jtfConta = new JTextField();
+        JSeparator jSeparator01 = new JSeparator();
+        JLabel jlNome = new JLabel("Nome:");
+        JTextField jtfNome = new JTextField();
+        JLabel jlEndereco = new JLabel("Endereço:");
+        JTextField jtfEndereco = new JTextField();
+        JLabel jlTelefone = new JLabel("Telefone");
+        JTextField jtfTelefone = new JTextField();
+        JLabel jlCpf = new JLabel("CPF.");
+        JTextField jtfCpf = new JTextField();
+        JRadioButton jrbCorrente = new JRadioButton("Conta Corrente");
+        JRadioButton jrbPoupanca = new JRadioButton("Conta Poupança");
+        ButtonGroup bgContas = new ButtonGroup();
+        JSeparator jSeparator02 = new JSeparator();
+        JButton jbConsultar = new JButton("Consultar");
+        JButton jbAtualizar = new JButton("Atualizar");
+        JButton jbFechar = new JButton("Fechar");
 
         super("Java Swing - Desenvolvimento de Sistemas");
         setSize(400, 255);
