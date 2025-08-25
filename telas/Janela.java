@@ -10,7 +10,6 @@ import javax.swing.JSeparator;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-
 public class Janela extends JFrame {
 
     public Janela(){
@@ -24,9 +23,9 @@ public class Janela extends JFrame {
         JTextField jtfNome = new JTextField();
         JLabel jlEndereco = new JLabel("Endereço:");
         JTextField jtfEndereco = new JTextField();
-        JLabel jlTelefone = new JLabel("Telefone");
+        JLabel jlTelefone = new JLabel("Telefone: ");
         JTextField jtfTelefone = new JTextField();
-        JLabel jlCpf = new JLabel("CPF.");
+        JLabel jlCpf = new JLabel("CPF:");
         JTextField jtfCpf = new JTextField();
         JRadioButton jrbCorrente = new JRadioButton("Conta Corrente");
         JRadioButton jrbPoupanca = new JRadioButton("Conta Poupança");
@@ -87,10 +86,10 @@ public class Janela extends JFrame {
         getContentPane().add(jtfTelefone);
 
         
-        jlCpf.setBounds(10, 125, 60, 18);
+        jlCpf.setBounds(40, 125, 60, 18);
         getContentPane().add(jlCpf);
 
-        jtfCpf.setBounds(100, 150, 111, 20);
+        jtfCpf.setBounds(75, 125, 111, 20);
         getContentPane().add(jtfCpf);
 
         
@@ -123,7 +122,9 @@ public class Janela extends JFrame {
 
         jbFechar.setBounds(225, 190, 100, 23);
         jbFechar.setMnemonic(KeyEvent.VK_F);
+        jbFechar.addActionListener(e -> System.exit(0));
         getContentPane().add(jbFechar);
+        
 
     }
 
