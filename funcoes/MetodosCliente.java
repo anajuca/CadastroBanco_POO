@@ -58,8 +58,4 @@ public class MetodosCliente implements Metodos<Cliente>{
 
     }
 
-    @Override
-    public void cancelar(){
-        return;
-    }
 }
