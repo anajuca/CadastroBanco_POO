@@ -53,7 +53,6 @@ public class Janela extends JFrame {
         getContentPane().setLayout(null);
         centralizar();
         
-        // Layout dos componentes (mantenha igual seu código original)
         jlAgencia.setText("Código da Agência");
         jlAgencia.setBounds(10, 10, 110, 18);
         getContentPane().add(jlAgencia);
