@@ -36,11 +36,11 @@ git clone https://github.com/anajuca/CadastroBanco_POO
 ```
 2. **Compile o projeto**:
 ```bash
-javac -d bin src/telas/Janela.java
+javac Janela.java
 ```
 3. **Execute a aplicação**:
 ```bash
-java -cp bin telas.Janela
+java Janela
 ```
 
 ## ✨ Desenvolvido por

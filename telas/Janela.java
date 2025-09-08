@@ -55,7 +55,6 @@ public class Janela extends JFrame {
         getContentPane().setLayout(null);
         centralizar();
         
-
         jlAgencia.setText("Código da Agência");
         jlAgencia.setBounds(10, 10, 110, 18);
         getContentPane().add(jlAgencia);
