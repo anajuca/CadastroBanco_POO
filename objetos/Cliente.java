@@ -7,12 +7,11 @@ public class Cliente {
     private String telefone;
     private String CPF;
 
-    // Construtor padrão (sem parâmetros) - NECESSÁRIO
     public Cliente() {
-        // Construtor vazio
+
     }
 
-    // Construtor com parâmetros (opcional)
+
     public Cliente(int numCadastro, String nome, String endereco, String telefone, String CPF) {
         this.numCadastro = numCadastro;
         this.nome = nome;
@@ -21,7 +20,7 @@ public class Cliente {
         this.CPF = CPF;
     }
 
-    // Getters e Setters
+
     public int getNumCadastro() { return numCadastro; }
     public void setNumCadastro(int numCadastro) { this.numCadastro = numCadastro; }
     

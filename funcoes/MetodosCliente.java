@@ -7,15 +7,25 @@ public class MetodosCliente implements Metodos<Cliente>{
     public ArrayList<Cliente> clientes = new ArrayList<Cliente>();
 
     @Override
-    public void gravar(Cliente cliente) throws Exception{
+    public void gravar(Cliente cliente) throws Exception {
 
-        if(cliente.getNome().isBlank() || cliente.getEndereco().isBlank() || cliente.getTelefone().isBlank() || cliente.getCPF().isBlank() ){
+        if(cliente.getNome().isBlank() || cliente.getEndereco().isBlank() || 
+            cliente.getTelefone().isBlank() || cliente.getCPF().isBlank()) {
             throw new Exception("Você não preencheu todas as informações!");
         }
 
-        cliente.setNumCadastro(clientes.size() + 1);
-        clientes.add(cliente);
-    }
+        if (cliente.getNumCadastro() == 0) {
+            cliente.setNumCadastro(clientes.size() + 1);
+        } else {
+            for (Cliente c : clientes) {
+                if (c.getNumCadastro() == cliente.getNumCadastro()) {
+                    throw new Exception("Número da conta já existe!");
+                }
+            }
+        }
+    
+    clientes.add(cliente);
+}
 
     @Override
     public void excluir(int id) throws Exception{

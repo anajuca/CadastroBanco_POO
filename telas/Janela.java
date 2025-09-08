@@ -21,6 +21,9 @@ public class Janela extends JFrame {
     private JButton jbConsultar, jbAtualizar, jbGravar;
 
     public Janela(){
+
+        super("Java Swing - Desenvolvimento de Sistemas");
+        
         metodosCliente = new MetodosCliente();
         
         JLabel jlAgencia = new JLabel();
@@ -44,8 +47,7 @@ public class Janela extends JFrame {
         jbAtualizar = new JButton("Atualizar");
         JButton jbFechar = new JButton("Fechar");
         jbGravar = new JButton("Gravar");
-
-        super("Java Swing - Desenvolvimento de Sistemas");
+        
         setSize(400, 255);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -53,7 +55,7 @@ public class Janela extends JFrame {
         getContentPane().setLayout(null);
         centralizar();
         
-        // Layout dos componentes (mantenha igual seu código original)
+
         jlAgencia.setText("Código da Agência");
         jlAgencia.setBounds(10, 10, 110, 18);
         getContentPane().add(jlAgencia);
@@ -95,7 +97,7 @@ public class Janela extends JFrame {
         jlCpf.setBounds(40, 125, 60, 18);
         getContentPane().add(jlCpf);
 
-        jtfCpf.setBounds(75, 125, 111, 20);
+        jtfCpf.setBounds(75, 125, 300, 20);
         getContentPane().add(jtfCpf);
 
         jrbCorrente.setBounds(100, 150, 111, 20);
@@ -113,20 +115,20 @@ public class Janela extends JFrame {
         jSeparator02.setBounds(10, 180, 365, 10);
         getContentPane().add(jSeparator02);
 
-        jbGravar.setBounds(5, 190, 100, 23);
+        jbGravar.setBounds(10, 190, 90, 23);
         jbGravar.setMnemonic(KeyEvent.VK_G);
         getContentPane().add(jbGravar);
 
-        jbConsultar.setBounds(100, 190, 100, 23);
+        jbConsultar.setBounds(100, 190, 90, 23);
         jbConsultar.setMnemonic(KeyEvent.VK_S);
         getContentPane().add(jbConsultar);
 
-        jbAtualizar.setBounds(195, 190, 100, 23);
+        jbAtualizar.setBounds(190, 190, 90, 23);
         jbAtualizar.setMnemonic(KeyEvent.VK_A);
         jbAtualizar.setEnabled(false);
         getContentPane().add(jbAtualizar);
 
-        jbFechar.setBounds(280, 190, 100, 23);
+        jbFechar.setBounds(280, 190, 90, 23);
         jbFechar.setMnemonic(KeyEvent.VK_F);
         jbFechar.addActionListener(e -> System.exit(0));
         getContentPane().add(jbFechar);
@@ -156,15 +158,19 @@ public class Janela extends JFrame {
 
     private void consultarCliente() {
         try {
+    
+            String numeroAgencia = jtfAgencia.getText().trim();
             String numeroConta = jtfConta.getText().trim();
-            if (numeroConta.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Digite o número da conta para consultar", "Aviso", JOptionPane.WARNING_MESSAGE);
+            
+            if (numeroAgencia.isEmpty() || numeroConta.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Digite ambos: agência e conta para consultar", "Aviso", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-
+    
             int numConta = Integer.parseInt(numeroConta);
             boolean encontrado = false;
-
+    
+            
             for (Cliente cliente : metodosCliente.clientes) {
                 if (cliente.getNumCadastro() == numConta) {
                     preencherFormulario(cliente);
@@ -174,13 +180,13 @@ public class Janela extends JFrame {
                     break;
                 }
             }
-
+    
             if (!encontrado) {
                 JOptionPane.showMessageDialog(this, "Cliente não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
             }
-
+    
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Número da conta inválido", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Número da conta inválido. Digite apenas números.", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -204,7 +210,6 @@ public class Janela extends JFrame {
         cliente.setTelefone(jtfTelefone.getText().trim());
         cliente.setCPF(jtfCpf.getText().trim());
         
-
         if (!jtfConta.getText().trim().isEmpty()) {
             try {
                 cliente.setNumCadastro(Integer.parseInt(jtfConta.getText().trim()));
